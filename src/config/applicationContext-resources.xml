@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- properties files -->
+    <bean id="propertyConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config/jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- JNDI DataSource for J2EE environments -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass">
+            <value>${db.driverClass}</value>
+        </property>
+        <property name="jdbcUrl">
+            <value>${db.jdbcUrl}</value>
+        </property>
+        <property name="user">
+            <value>${db.user}</value>
+        </property>
+        <property name="password">
+            <value>${db.password}</value>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- 数据库言 -->
+        <!-- <property name="dialect">org.hibernate.dialect.OracleDialect</property> -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- 将Session扔到线程里去处理 -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 在控制台打印SQL语句 -->
+        <property name="show_sql">true</property>
+
+        <!-- 自动把实体类与属性映射成数据库中的表与列 -->
+        <property name="hbm2ddl.auto">update</property>
+         
+        <!-- 在Hibernate中注册实体类 -->
+        <mapping class="com.gopersist.entity.demo.Demo"/>
+
+    </session-factory>
+
+</hibernate-configuration>
